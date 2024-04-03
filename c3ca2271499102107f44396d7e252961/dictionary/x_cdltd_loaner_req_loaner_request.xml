@@ -1,3 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="dc8be6fd49d102107f44396d7e2529b4" extends="task" label="Loaner Request" max_length="40" name="x_cdltd_loaner_req_loaner_request" type="collection"/>
+    <element db_object_id="dc8be6fd49d102107f44396d7e2529b4" extends="task" label="Loaner Request" max_length="40" name="x_cdltd_loaner_req_loaner_request" type="collection">
+        <element choice="3" label="Depot" max_length="40" name="depot" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Buenos Aires" value="ba"/>
+                <element inactive_on_update="false" label="London" value="london"/>
+                <element inactive_on_update="false" label="New York" value="ny"/>
+                <element inactive_on_update="false" label="Other" value="other"/>
+                <element inactive_on_update="false" label="Santa Clara" value="sc"/>
+                <element inactive_on_update="false" label="Singapore" value="singapore"/>
+                <element inactive_on_update="false" label="Sydney" value="sydney"/>
+            </choice>
+        </element>
+        <element label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
+        <element choice="3" default="Laptop" label="Item type" max_length="40" name="item_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Laptop" value="cmdb_ci_computer"/>
+                <element inactive_on_update="false" label="Mobile Phone" value="cmdb_ci_mobile_device"/>
+                <element inactive_on_update="false" label="Projector" value="cmdb_ci_projector"/>
+            </choice>
+        </element>
+        <element label="Location to be used" max_length="100" name="location_to_be_used" type="string"/>
+        <element label="Other" max_length="100" name="other" type="string"/>
+        <element label="Requested for" mandatory="true" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+        <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
+    </element>
 </database>
